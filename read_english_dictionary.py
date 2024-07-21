@@ -27,8 +27,12 @@ def search(x, plus, mul):
     m = mul_cal(x.upper())
     if plus.get(p) != None and mul.get(m) != None:
         arr = []
+        count = {}
         for i in plus[p]:
-            if i in mul[m]:
+            count[i] = 0
+            
+        for i in mul[m]:
+            if count.get(i) == 0:
                 arr.append(i)
         return arr
     return ["not found"]
